@@ -19,16 +19,17 @@ export default function GameInfo() {
         </div>
         <div className="col" id="gameInfo2">
           <h2>
-            Buy and Sell
-            <span> Virtual Resources </span>
-            and Businesses
+            Lorem, ipsum dolor sit amet
+            <span> consectetur </span>
+            adipisicing elit.
           </h2>
           <img src={GameInfo2} alt="Game Info 2" />
         </div>
         <div className="col" id="gameInfo3">
           <img src={GameInfo3} alt="Game Info 3" />
           <h2>
-            Earn <span>REKK</span>, a new kind of reality- backed cryptocurrency
+            Play <span>Earthium</span>Lorem, ipsum dolor sit amet consectetur
+            adipisicing elit.
           </h2>
         </div>
       </div>
