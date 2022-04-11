@@ -18,7 +18,9 @@ export default function Blogs() {
               <img src={img} alt="Blog" />
               <div className="data">
                 <h6>31 Jan,2021</h6>
-                <h4>Rightmove Now Offering Click to Purchase Option</h4>
+                <h4>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                </h4>
                 <p>
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                   Magnam, quibusdam ea quidem, laudantium excepturi
