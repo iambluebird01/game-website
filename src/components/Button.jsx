@@ -1,40 +1,30 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { AiOutlineArrowUp } from "react-icons/ai";
-export default function () {
-  const [visible, setVisible] = useState(false);
-  window.addEventListener("scroll", () => {
-    window.pageYOffset > 100 ? setVisible(true) : setVisible(false);
-  });
+import React from 'react';
+import styled from 'styled-components';
+import { BsArrowRightShort } from 'react-icons/bs';
+export default function Button(props) {
+  let { icon, text } = props;
+  if (icon === undefined) icon = <BsArrowRightShort />;
   return (
-    <Div>
-      <a href="#" className={`${visible ? "block" : "none"}`}>
-        <AiOutlineArrowUp />
-      </a>
-    </Div>
+    <Btn>
+      {icon}
+      {text}
+    </Btn>
   );
 }
 
-const Div = styled.div`
-  .none {
-    opacity: 0;
-    visibility: hidden;
-  }
-  a {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    background-color: var(--primary-color);
-    padding: 1rem;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.4s ease-in-out;
-    z-index: 1;
-    svg {
-      color: black;
-      font-size: 1.3rem;
-    }
+const Btn = styled.button`
+  background-color: var(--primary-color);
+  padding: 1rem 2rem;
+  border-radius: 0.3rem;
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  svg {
+    font-size: 1.3rem;
   }
 `;
