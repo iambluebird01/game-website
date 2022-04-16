@@ -25,6 +25,6 @@ const Btn = styled.button`
   font-weight: bold;
   cursor: pointer;
   svg {
-    font-size: 1.3rem;
+    font-size: 2rem;
   }
 `;
