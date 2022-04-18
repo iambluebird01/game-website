@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import background from '../assets/background.png';
 import image from '../assets/earth.png';
 import Button from './Button.jsx';
 import { RiGamepadFill } from 'react-icons/ri';
+
+import { Canvas, useFrame, useLoader } from '@react-three/fiber';
+
+import * as THREE from 'three';
+import { Color } from 'three';
+
+let camera, scene, renderer;
+let geometry, material, mesh;
+
 export default function Home() {
+  useEffect(() => {
+    init();
+  }, []);
+
   return (
     <Section id="home">
       <div className="text">
@@ -19,9 +32,41 @@ export default function Home() {
         </p>
         <Button text="Game Start" icon={<RiGamepadFill />} />
       </div>
-      <div className="image"></div>
+
+      <div id="test" />
     </Section>
   );
+}
+
+function init() {
+  camera = new THREE.PerspectiveCamera(15, 500 / 500, 0.01, 10);
+  camera.position.z = 1;
+
+  scene = new THREE.Scene();
+
+  geometry = new THREE.SphereGeometry(0.1, 30, 30);
+  material = new THREE.MeshBasicMaterial({
+    map: new THREE.TextureLoader().load('textures/earth.png'),
+  });
+
+  mesh = new THREE.Mesh(geometry, material);
+  scene.add(mesh);
+
+  renderer = new THREE.WebGLRenderer({ alpha: true });
+  renderer.setSize(500, 500);
+  renderer.setAnimationLoop(animation);
+  //document.body.appendChild(renderer.domElement);
+  //React.createElement("div", { className: "contexCon" },renderer.domElement);
+  document.getElementById('test').innerHTML = '';
+  document.getElementById('test').appendChild(renderer.domElement);
+}
+
+function animation(time) {
+  mesh.rotation.reorder('XZY');
+  mesh.rotation.y = time / 3000;
+  mesh.rotation.z = THREE.Math.degToRad(-21.5);
+
+  renderer.render(scene, camera);
 }
 
 const Section = styled.section`
