@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { BsArrowRightShort } from 'react-icons/bs';
+import React from "react";
+import styled from "styled-components";
+import { BsArrowRightShort } from "react-icons/bs";
 export default function Button(props) {
   let { icon, text } = props;
   if (icon === undefined) icon = <BsArrowRightShort />;
@@ -25,6 +25,6 @@ const Btn = styled.button`
   font-weight: bold;
   cursor: pointer;
   svg {
-    font-size: 2rem;
+    font-size: 1.1rem;
   }
 `;
