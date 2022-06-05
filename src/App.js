@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
-import Blogs from "./components/Blogs";
-import GameInfo from "./components/GameInfo";
-import Footer from "./components/Footer";
-import Home from "./components/Home";
-import Navbar from "./components/Navbar";
-import ScrollToTop from "components/ScrollToTop";
-import Designs from "components/Designs";
-import scrollreveal from "scrollreveal";
+import React, { useEffect } from 'react';
+import Blogs from './components/Blogs';
+import GameInfo from './components/GameInfo';
+import Footer from './components/Footer';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
+import ScrollToTop from 'components/ScrollToTop';
+import Designs from 'components/Designs';
+import scrollreveal from 'scrollreveal';
 
 export default function App() {
   useEffect(() => {
     const registerAnimations = () => {
       const sr = scrollreveal({
-        origin: "bottom",
-        distance: "80px",
+        origin: 'bottom',
+        distance: '80px',
         duration: 2000,
         reset: false,
       });
@@ -36,8 +36,8 @@ export default function App() {
     registerAnimations();
   }, []);
   window.setTimeout(() => {
-    const home = document.getElementById("home");
-    home.style.transform = "none";
+    const home = document.getElementById('home');
+    home.style.transform = 'none';
   }, 1500);
   return (
     <div>

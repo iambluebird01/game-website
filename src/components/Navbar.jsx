@@ -4,6 +4,7 @@ import logo from '../assets/logo.png';
 import flag from '../assets/flag.png';
 import { BsToggleOn, BsToggleOff } from 'react-icons/bs';
 import { FiLock } from 'react-icons/fi';
+import { Dropdown } from 'react-bootstrap';
 export default function Navbar() {
   const [navState, setNavState] = useState(false);
   return (
@@ -43,9 +44,7 @@ export default function Navbar() {
             <img src={flag} alt="Flag" />
             <span> English</span>
           </div>
-          <button>
-            <FiLock /> Login & Registration
-          </button>
+          <div>BB</div>
         </div>
       </div>
     </Nav>

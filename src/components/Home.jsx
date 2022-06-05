@@ -5,10 +5,10 @@ import image from '../assets/earth.png';
 import Button from './Button.jsx';
 import { RiGamepadFill } from 'react-icons/ri';
 
-import { Canvas, useFrame, useLoader } from '@react-three/fiber';
+//import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 
 import * as THREE from 'three';
-import { Color } from 'three';
+//import { Color } from 'three';
 
 let camera, scene, renderer;
 let geometry, material, mesh;
@@ -53,7 +53,7 @@ function init() {
   scene.add(mesh);
 
   renderer = new THREE.WebGLRenderer({ alpha: true });
-  renderer.setSize(500, 500);
+  renderer.setSize(1200, 1200);
   renderer.setAnimationLoop(animation);
   //document.body.appendChild(renderer.domElement);
   //React.createElement("div", { className: "contexCon" },renderer.domElement);
@@ -109,7 +109,6 @@ const Section = styled.section`
     box-shadow: inset 20px 0 80px 6px rgb(0, 0, 0);
     color: #000;
   }
-
   @keyframes rotate {
     0% {
       background-position: 0 0;
