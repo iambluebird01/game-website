@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
-import Blogs from './components/Blogs';
-import GameInfo from './components/GameInfo';
-import Footer from './components/Footer';
-import Home from './components/Home';
-import Navbar from './components/Navbar';
+import Blogs from '../components/Blogs';
+import GameInfo from '../components/GameInfo';
+import Footer from '../components/Footer';
+import Home from '../components/Home';
 import ScrollToTop from 'components/ScrollToTop';
-import Designs from 'components/Designs';
+import Designs from '../components/Designs';
 import scrollreveal from 'scrollreveal';
 
-export default function App() {
+export default function Homee() {
   useEffect(() => {
     const registerAnimations = () => {
       const sr = scrollreveal({
@@ -42,7 +41,6 @@ export default function App() {
   return (
     <div>
       <ScrollToTop />
-      <Navbar />
       <Home />
       <Designs />
       <GameInfo />

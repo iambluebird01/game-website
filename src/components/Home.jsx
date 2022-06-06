@@ -53,7 +53,7 @@ function init() {
   scene.add(mesh);
 
   renderer = new THREE.WebGLRenderer({ alpha: true });
-  renderer.setSize(1200, 1200);
+  renderer.setSize(900, 900);
   renderer.setAnimationLoop(animation);
   //document.body.appendChild(renderer.domElement);
   //React.createElement("div", { className: "contexCon" },renderer.domElement);

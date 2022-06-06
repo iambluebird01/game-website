@@ -4,8 +4,12 @@ import logo from '../assets/logo.png';
 import flag from '../assets/flag.png';
 import { BsToggleOn, BsToggleOff } from 'react-icons/bs';
 import { FiLock } from 'react-icons/fi';
-import { Dropdown } from 'react-bootstrap';
-export default function Navbar() {
+import { Link } from 'react-router-dom';
+export default function Navbar({ user }) {
+  const logout = () => {
+    window.open('http://localhost:5000/auth/logout', '_self');
+  };
+
   const [navState, setNavState] = useState(false);
   return (
     <Nav>
@@ -22,30 +26,34 @@ export default function Navbar() {
         </div>
       </div>
       <div className={`links ${navState ? 'show' : 'hide'}`}>
-        <ul>
-          <li>
-            <a href="home">Home</a>
-          </li>
-          <li>
-            <a href="about">About</a>
-          </li>
-          <li>
-            <a href="news">News</a>
-          </li>
-          <li>
-            <a href="map">Discussion</a>
-          </li>
-          <li>
-            <a href="map">Guides</a>
-          </li>
-        </ul>
-        <div className="login-btn">
-          <div className="flag">
-            <img src={flag} alt="Flag" />
-            <span> English</span>
-          </div>
-          <div>BB</div>
-        </div>
+        {user ? (
+          <ul>
+            <li>
+              <a href="home">Home</a>
+            </li>
+            <li>
+              <a href="about">About</a>
+            </li>
+            <li>
+              <a href="news">News</a>
+            </li>
+            <li>
+              <a href="map">Discussion</a>
+            </li>
+            <li>
+              <a href="map">Guides</a>
+            </li>
+            <div className="listItem">
+              <img src={user.photos[0].value} alt="" className="avatar" />
+            </div>
+            <div className="listItem">{user.displayName}</div>
+            <div className="login-btn">
+              <button onClick={logout}>Logout</button>
+            </div>
+          </ul>
+        ) : (
+          <li className="loglog">Please Sign-in to enter our website</li>
+        )}
       </div>
     </Nav>
   );
@@ -67,6 +75,24 @@ const Nav = styled.nav`
       display: none;
     }
   }
+
+  .listItem {
+    display: flex;
+    margin-right: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+  }
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 20%;
+    object-fit: cover;
+  }
+
   .links {
     display: flex;
     align-items: center;
@@ -101,6 +127,14 @@ const Nav = styled.nav`
         }
       }
     }
+    .loglog {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 2rem;
+    }
+
     .login-btn {
       display: flex;
       align-items: center;
